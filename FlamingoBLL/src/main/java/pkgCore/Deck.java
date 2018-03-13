@@ -39,6 +39,33 @@ public class Deck {
 		this(1);
 	}
 	
+	public int getRemaining(Object eNum)
+	{
+		int remaining = 0;
+		if (eNum instanceof eRank)
+		{
+			eRank rank = (eRank)eNum;
+			
+			for (Card c : cards)
+			{
+				if (c.getRank() == rank)
+					remaining++;
+			}
+		}
+		
+		if (eNum instanceof eSuit)
+		{
+			eSuit suit = (eSuit)eNum;
+			
+			for (Card c : cards)
+			{
+				if (c.getSuit() == suit)
+					remaining++;
+			}
+		}
+		
+		return remaining;
+	}
 	
 	//	DONE: Add a draw() method that will take a card from the deck and
 	//			return it to the caller
